@@ -9,7 +9,7 @@ class VideoFile(models.Model):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=255, blank=True, null=True)
-    video_file = CloudinaryField(resource_type='video', blank=True, null=True)
+    video_file = models.FileField('video', blank=True, null=True)
     # thumbnail = CloudinaryField('thumbnail', blank=True, null=True)
 
     # # def save(self, *args, **kwargs):

@@ -26,7 +26,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     last_login = models.DateTimeField(null=True)
     date_joined = models.DateTimeField(auto_now_add=True)
-    verified = models.BooleanField(default=False)
+    verified = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'email'
     EMAIL_FIELD = 'email'

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from .managers import CustomUserManager
 from datetime import datetime
 import uuid
 
@@ -25,6 +26,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+    objects = CustomUserManager()
 
     class Meta:
         ordering = ('-date_joined',)

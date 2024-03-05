@@ -10,8 +10,7 @@ class VideoFile(models.Model):
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=255, blank=True, null=True)
     video_file = models.FileField('video', blank=True, null=True)
-    thumbnail = CloudinaryField('thumbnail', blank=True, null=True)
-
+    thumbnail = models.FileField('thumbnail', blank=True, null=True)
     # # def save(self, *args, **kwargs):
     # #     # Generate a transformation URL to extract the first frame as a thumbnail
     # #     if self.video_file and not self.thumbnail:

@@ -4,7 +4,8 @@ from decouple import config
 def send_password_reset_email(email_data):
     subject = 'Password Reset'
     client_url = config('CLIENT_URL')
-    password_rest_url = f'{client_url}/password-rest/{email_data['token']}'
+    token = email_data['token']
+    password_rest_url = f'{client_url}/password-rest/{token}'
     message = f'Hello {email_data["firstname"]},\n\n Below is the link to reset your password \n\n {password_rest_url}' 
     send_mail(
         subject,
